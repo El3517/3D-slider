@@ -1,3 +1,8 @@
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+body{
+    background-color: black;
+}
 .banner {
     width: 100%;
     height: 100vh;
@@ -15,12 +20,13 @@
     transform-style: preserve-3d;
     transform: perspective(1000px);
     animation: autoRun 20s linear infinite;
+    z-index: 2;
 }
 @keyframes autoRun {
     from{
-        transform: perspective(1000px) rotateY(0deg);
+        transform: perspective(1000px) rotateX(-20deg) rotateY(0deg);
     }to{
-        transform: perspective(1000px) rotateY(360deg);
+        transform: perspective(1000px) rotateX(-20deg) rotateY(360deg);
     }
 }
 
@@ -35,4 +41,53 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.banner .content{
+    position: absolute;
+    bottom: 0%;
+    left: 60%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+   padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.banner .content h1{
+    font-family: 'ICA Rubrik';
+    font-size: 100px;
+    line-height: 10px;
+    color: darkred;
+    position: relative;
+}
+.banner .content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 3;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
+}
+.banner .content .author{
+    font-family: 'Poppins';
+    text-align: right;
+    max-width: 200px;
+}
+.banner .content h2{
+    font-size: 30px;
+}
+.banner .content .model{
+    background-image: url(../images/hoodie_robot2-removebg-preview.png);
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    bottom: 0%;
+    left: -10%;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 2;
 }
